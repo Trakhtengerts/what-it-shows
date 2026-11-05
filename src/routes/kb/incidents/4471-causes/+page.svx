@@ -4,7 +4,7 @@ title: '#4471 · two causes in one ticket'
 owner: Yegor Trakhtengerts
 status: open
 reviewed: 2026-11-05
-signature: Yegor Trakhtengerts
+signature: "v1.eyJzdWIiOiIxODE3IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM5MTE5NzYsImV4cCI6MTc5Mzk5ODM3Nn0.0eUWjPnwgKbIi8wc-tRUHQuVQtrjO7VHFW82dSKRAHU"
 ---
 
 <script>
