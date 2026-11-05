@@ -1,0 +1,37 @@
+---
+layout: runbook
+title: '#4471 · two causes in one ticket'
+owner: Yegor Trakhtengerts
+status: open
+reviewed: 2026-11-05
+signature: Yegor Trakhtengerts
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+Ticket #4471 merged 412 date reports and was marked known, as one parser bug: the shared parser reads the month first, and these tenants write the day first.
+
+That is only the larger cause. `causeOf` splits the same reports into two. A form on `booking-v3` tells the person to type `MM/DD/YYYY`, then reads the date the tenant's way. That is `hint`, a different bug, filed in #4471 with no ticket of its own.
+
+<Callout kind="warn">
+Known was the wrong close. One ticket held two problems.
+</Callout>
+
+## What #4471 actually holds
+
+<CauseTable ticket={4471} />
+
+The table is the count. `parser` is the cause most of these reports share, so it is the cause of #4471. `hint` is the rest. Five reports inside `parser` were read as a one-day move. They stay in that count. The desk notes them. They are not a third cause.
+
+## Tickets
+
+One ticket per problem, in this repo:
+
+- `parser` — the month-first parser on a day-first tenant. The report count is the `parser` row above.
+- `hint` — `booking-v3` shows `MM/DD/YYYY` while the tenant's locale writes the day first, and the report came in through the form. The report count is the `hint` row above.
+
+<RenderStamp {signature} />
